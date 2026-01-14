@@ -31,6 +31,7 @@ func _process(delta):
 				label.hide()
 				items[i].reparent(player)
 				items[i].is_being_held = true
+				player.held_item = items[i]
 				
 		else:
 			label.hide()

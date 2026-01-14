@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bodorkenj22gh"]
+[gd_scene load_steps=6 format=3 uid="uid://bodorkenj22gh"]
 
 [ext_resource type="Script" uid="uid://mhrvqir0ci5a" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://doa8wbo3ipyv8" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://qp6wisantsyv" path="res://h_box_container.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://clto5l32pwhfx" path="res://scenes/InventorySlot.tscn" id="4_iywne"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yqjtg"]
 font_size = 20
@@ -19,3 +21,36 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Press E To Interact"
 label_settings = SubResource("LabelSettings_yqjtg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 450.0
+offset_top = 550.0
+offset_right = 666.0
+offset_bottom = 590.0
+script = ExtResource("3_lbhrr")
+
+[node name="Hand" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+slot_speed = 2
+
+[node name="InventorySlot" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+slot_speed = 0
+
+[node name="InventorySlot1" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+slot_speed = 0
+
+[node name="InventorySlot2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="InventorySlot3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2

@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+class_name Item
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 
