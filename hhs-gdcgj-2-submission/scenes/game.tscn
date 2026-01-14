@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bodorkenj22gh"]
+
+[ext_resource type="Script" uid="uid://mhrvqir0ci5a" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://doa8wbo3ipyv8" path="res://scenes/player.tscn" id="2_yqjtg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqjtg"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_uwrxv")
+
+[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press E To Interact"
+label_settings = SubResource("LabelSettings_yqjtg")
