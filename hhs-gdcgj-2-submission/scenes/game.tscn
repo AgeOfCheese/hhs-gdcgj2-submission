@@ -1,56 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodorkenj22gh"]
+[gd_scene load_steps=2 format=3 uid="uid://bodorkenj22gh"]
 
-[ext_resource type="Script" uid="uid://mhrvqir0ci5a" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://doa8wbo3ipyv8" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="Script" uid="uid://qp6wisantsyv" path="res://h_box_container.gd" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://clto5l32pwhfx" path="res://scenes/InventorySlot.tscn" id="4_iywne"]
+[sub_resource type="GDScript" id="GDScript_8cj0n"]
+script/source = "extends Node2D
+const ITEM = preload(\"uid://cjkgqf3pgpdrn\")
+var items = []#temp solutions
+@onready var label = $Label
+@onready var player = $Player
 
-[sub_resource type="LabelSettings" id="LabelSettings_yqjtg"]
-font_size = 20
-outline_size = 3
-outline_color = Color(0, 0, 0, 1)
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var gas_can = ITEM.instantiate()
+	var hitbox = CircleShape2D.new()
+	hitbox.radius = 10
+	gas_can.set_sprite(\"res://sprites/gas.png\")
+	
+	gas_can.set_collision_shape_2d(hitbox)
+	
+	gas_can.position = Vector2(200, 200)
+	
+	add_child(gas_can)
+	items.append(gas_can)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	for i in range(items.size()):
+		if Input.is_action_pressed(\"drop\") && items[i].is_being_held:
+			items[i].is_being_held = false
+			items[i].reparent(self)
+			continue
+		if items[i].near_item:
+			label.position = items[i].position + Vector2(20,0)
+			label.show()
+			if Input.is_action_just_pressed(\"interact\"):
+				label.hide()
+				items[i].reparent(player)
+				items[i].is_being_held = true
+				player.held_item = items[i]
+				
+		else:
+			label.hide()
+
+		
+"
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_uwrxv")
-
-[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Press E To Interact"
-label_settings = SubResource("LabelSettings_yqjtg")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-custom_minimum_size = Vector2(40, 40)
-offset_left = 450.0
-offset_top = 550.0
-offset_right = 666.0
-offset_bottom = 590.0
-script = ExtResource("3_lbhrr")
-
-[node name="Hand" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-slot_speed = 2
-
-[node name="InventorySlot" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-slot_speed = 0
-
-[node name="InventorySlot1" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-slot_speed = 0
-
-[node name="InventorySlot2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="InventorySlot3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("4_iywne")]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+script = SubResource("GDScript_8cj0n")

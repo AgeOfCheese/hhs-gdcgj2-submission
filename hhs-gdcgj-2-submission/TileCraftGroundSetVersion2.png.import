@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo1s0r1g63csw"
-path="res://.godot/imported/gas.png-082276a02719c243d366b5aa060732b1.ctex"
+uid="uid://dpftqs4uvb6al"
+path="res://.godot/imported/TileCraftGroundSetVersion2.png-5541a665fe38f2ec8ff03a62436b1a40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gas.png"
-dest_files=["res://.godot/imported/gas.png-082276a02719c243d366b5aa060732b1.ctex"]
+source_file="res://TileCraftGroundSetVersion2.png"
+dest_files=["res://.godot/imported/TileCraftGroundSetVersion2.png-5541a665fe38f2ec8ff03a62436b1a40.ctex"]
 
 [params]
 
