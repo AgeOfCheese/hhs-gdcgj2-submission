@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d07noplkfhe3w"]
+
+[ext_resource type="Script" uid="uid://chj2bfq0j65iv" path="res://scripts/compiler.gd" id="1_pjhk7"]
+
+[node name="Compiler" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pjhk7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
