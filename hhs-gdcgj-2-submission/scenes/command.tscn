@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7j08o7181mxp"]
+[gd_scene load_steps=3 format=3 uid="uid://bttvnh8ufagqg"]
 
 [ext_resource type="Script" uid="uid://cwnalw0w1qjnh" path="res://scripts/command.gd" id="1_hluhf"]
 
-[node name="Command" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hluhf"]
+size = Vector2(40, 40)
+
+[node name="Command" type="Area2D"]
 script = ExtResource("1_hluhf")
+
+[node name="ColorRect" type="Polygon2D" parent="."]
+position = Vector2(0, 1.0526314)
+polygon = PackedVector2Array(-21, -20, 19, -20, 19, 18, -19, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hluhf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

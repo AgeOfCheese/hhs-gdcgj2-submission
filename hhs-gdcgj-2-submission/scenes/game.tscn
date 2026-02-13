@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bodorkenj22gh"]
+[gd_scene load_steps=10 format=3 uid="uid://bodorkenj22gh"]
 
 [ext_resource type="Texture2D" uid="uid://dpftqs4uvb6al" path="res://TileCraftGroundSetVersion2.png" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c8teroexdrd43" path="res://GRASS+.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://doa8wbo3ipyv8" path="res://scenes/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cvop2hvosn0o1" path="res://scenes/player.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dv48f6l5tostd" path="res://scenes/compiler.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://bttvnh8ufagqg" path="res://scenes/command.tscn" id="5_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -451,3 +453,10 @@ tile_set = SubResource("TileSet_lnu2h")
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
+
+[node name="Compiler" parent="." instance=ExtResource("4_iywne")]
+offset_top = 112.0
+offset_bottom = 112.0
+
+[node name="Command" parent="." instance=ExtResource("5_p57ef")]
+position = Vector2(181, 308)

@@ -1,13 +1,97 @@
-[gd_scene load_steps=2 format=3 uid="uid://d07noplkfhe3w"]
+[gd_scene load_steps=3 format=3 uid="uid://dv48f6l5tostd"]
 
 [ext_resource type="Script" uid="uid://chj2bfq0j65iv" path="res://scripts/compiler.gd" id="1_pjhk7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjhk7"]
 
 [node name="Compiler" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_pjhk7")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 12.0
+offset_right = 52.0
+offset_bottom = 348.0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control2/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control3/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control4" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control4/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control5" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control5/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control6" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control6/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control7" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control7/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Control8" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="VBoxContainer/Control8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/Control8/Area2D"]
+shape = SubResource("RectangleShape2D_pjhk7")
+
+[node name="Iterator" type="Polygon2D" parent="."]
+color = Color(0.56081635, 1, 0.5749033, 1)
+polygon = PackedVector2Array(57, 10, 57, -9, 40, 0)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

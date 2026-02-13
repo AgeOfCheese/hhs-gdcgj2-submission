@@ -5,14 +5,15 @@ const TILE_DIST = 100
 # Called when the node enters the scene tree for the first time.
 @onready var timer = $Timer
 func _ready():
-	$Timer.start()
+	#$Timer.start()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
 	velocity = velocity.move_toward(Vector2.ZERO, DELTA*delta)
-	print(position)
+	#print(position)
 	move_and_slide()
 
 func move():
